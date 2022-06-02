@@ -64,29 +64,6 @@ public class MyDbHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
     //TodoSELECT 문 (할 일 목록을 조회)
-    public ArrayList<TodoItem> getTodoList() {
-        ArrayList<TodoItem> todoItems = new ArrayList<>();
-
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + ToDo.TABLE_NAME + " ORDER BY writeDate DESC", null);
-        if(cursor.getCount() != 0){ //조회한 데이터가 있을 때 수행
-            while(cursor.moveToNext()){
-                int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                String content = cursor.getString(cursor.getColumnIndexOrThrow("content"));
-                String writeDate = cursor.getString(cursor.getColumnIndexOrThrow("writeDate"));
-
-                TodoItem todoItem = new TodoItem();
-                todoItem.setId(id);
-                todoItem.setContent(content);
-                todoItem.setWriteDate(writeDate);
-                todoItems.add(todoItem);
-            }
-        }
-        cursor.close();
-        return todoItems;
-    }
-
-    //TodoSELECT 문 (할 일 목록을 조회)
     public ArrayList<TodoItem> getTodoList(String date) {
         ArrayList<TodoItem> todoItems = new ArrayList<>();
 

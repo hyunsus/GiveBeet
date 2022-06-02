@@ -133,7 +133,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
                                 public void onClick(View view) {
                                     // Update table
                                     String content = et_content.getText().toString();
-                                    String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()); // 현재 시간 (연월일시분초) 받아오기
+                                    String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); // 현재 시간 (연월일시분초) 받아오기
                                     String beforeTime = todoItem.getWriteDate();
 
                                     mTodoDBHelper.UpdateTodo(content, currentTime, beforeTime);

@@ -11,7 +11,7 @@ public class ToDo {
     private static final String SQL_CREATE_TODO =
             "CREATE TABLE " + ToDo.TABLE_NAME + " (" +
                     ToDo.TODO_ID + " INTEGER PRIMARY KEY," +
-                    ToDo.CONTENT + " TEXT," +
+                    ToDo.CONTENT + " TEXT," + ToDo.BEET_COUNT + " INTEGER," +
                     ToDo.WRITEDATE + " TEXT)";
 
     private static final String SQL_DELETE_TODO =

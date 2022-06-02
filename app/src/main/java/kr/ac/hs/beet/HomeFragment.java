@@ -169,7 +169,8 @@ public class HomeFragment extends Fragment {
                 int col1 = c.getInt(0);
                 String col2 = c.getString(1);
                 String co13 = c.getString(2);
-                Log.i(TAG,"col1: "+ col1 + " col2: " + col2 + " col3: " + co13);
+                String col4 = c.getString(3);
+                Log.i(TAG,"col1: "+ col1 + " col2: " + col2 + " col3: " + co13 + " col4: " + col4);
 
                 list.add(new HomeQuestList(col2));
                 viewPager2.setAdapter(new HomeAdapter(list));

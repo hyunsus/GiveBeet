@@ -37,7 +37,6 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
     private FloatingActionButton mBtn_write;
     private ArrayList<TodoItem> mTodoItems;
     private MyDbHelper mDBHelper;
-    private Dbhelper sDBHelper;
     private ToDoAdapter mAdapter;
     Button button_beet;
     int count;
@@ -45,7 +44,7 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
     EditText et_Date;
     EditText et_date;
     String tododate;
-    String col3;
+    String col4;
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener myDatePicker = new DatePickerDialog.OnDateSetListener() {
 
@@ -83,7 +82,6 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
         mBtn_write = view.findViewById(R.id.fab);
         mTodoItems = new ArrayList<>();
         mDBHelper = new MyDbHelper(getActivity().getApplicationContext());
-        sDBHelper = new Dbhelper(getActivity().getApplicationContext());
         button_beet = view.findViewById(R.id.button_beet);
 
         button_beet.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +113,7 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
                 long newRowId2 = db.insert(Customer.TABLE_NAME, null, values);
                 Log.i(TAG, "new row ID: " + newRowId);*/
 
-                SQLiteDatabase db2 = sDBHelper.getReadableDatabase();
+                SQLiteDatabase db2 = mDBHelper.getReadableDatabase();
                 Cursor c = db2.rawQuery("SELECT * FROM " + Beet.TABLE_NAME, null);
                 if(c.moveToFirst()) {
                     int beetcount = c.getInt(1);
@@ -126,8 +124,7 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
                     values.put(Beet.BEET_COUNT,beetcount);
 
                     SQLiteDatabase db = mDBHelper.getWritableDatabase();
-                    long newRowId = db.insert(Storage.TABLE_NAME, null, values);
-                    long newRowId2 = db.insert(Customer.TABLE_NAME, null, values);
+                    long newRowId = db.insert(Beet.TABLE_NAME, null, values);
                     Log.i(TAG, "new row ID: " + newRowId);
 
                 }while(c.moveToNext());
@@ -135,7 +132,6 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
                 db2.close();
             }
         });
-
 
         mBtn_write.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,8 +167,8 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
         Cursor c = db.rawQuery("SELECT * FROM " + ToDo.TABLE_NAME, null);
         if(c.moveToFirst()){
             do{
-                col3 = c.getString(2);
-                Log.i(TAG,"col3: " + col3);
+                col4 = c.getString(3);
+                Log.i(TAG,"col4: " + col4);
             }while (c.moveToNext());
         }
         c.close();
@@ -187,7 +183,7 @@ public class ToDoFragment extends Fragment implements ToDoAdapter.BeetCheckBoxCl
                 new DatePickerDialog(getActivity(), myDatePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
                 Log.i(TAG,"et_Date: " + et_Date.getText().toString());
                 tododate = et_Date.getText().toString();
-                if(tododate.equals(col3)){
+                if(tododate.equals(col4)){
                     loadRecentDB(); // load recent DB
                 }
             }
