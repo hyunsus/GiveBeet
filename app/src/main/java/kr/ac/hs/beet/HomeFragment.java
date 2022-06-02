@@ -1,5 +1,7 @@
 package kr.ac.hs.beet;
 
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +43,7 @@ public class HomeFragment extends Fragment {
     private int	uiOption;
     MyDbHelper myDbHelper;
     ViewPager2 viewPager2;
-
+    ImageView doIt;
     //ArrayList<HomeQuestList> list = new ArrayList<>();
     EditText text2;
     TextView doit_count;
@@ -114,7 +117,10 @@ public class HomeFragment extends Fragment {
             uiOption |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility( uiOption );
         //---------------------
-
+        //doit의 이미지 변경하는 것 추가
+        doIt = view.findViewById(R.id.doit);
+        findImageName();
+        //-------------
         return view;
     }
     //ToolBar에 toolbar.xml 을 인플레이트
@@ -134,19 +140,21 @@ public class HomeFragment extends Fragment {
         {
             case R.id.action_store :
                 //Log.i(TAG, "store");
-                Toast.makeText(getActivity().getApplicationContext(), "Store Click", Toast.LENGTH_LONG).show();
-                return true;
+                Intent intent = new Intent(getActivity().getApplicationContext(), ShopActivity.class);
+                startActivity(intent);
+                break;
             case R.id.action_custom :
                 //Log.i(TAG, "custom");
-                Toast.makeText(getActivity().getApplicationContext(), "Custom Click", Toast.LENGTH_LONG).show();
-                return true;
+                Intent intent2 = new Intent(getActivity().getApplicationContext(), StorageActivity.class);
+                startActivity(intent2);
+                break;
             case android.R.id.home :
                 //Log.i(TAG, "home");
-                Toast.makeText(getActivity().getApplicationContext(), "Home Click", Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                Intent intent3 = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
+                startActivity(intent3);
+                break;
         }
+        return true;
     }
 
     //--------------
@@ -191,5 +199,37 @@ public class HomeFragment extends Fragment {
         //1.todo에서 비트 받기 버튼 -> 퀘스트 완료 개수만큼 비트 카운트 -> 비트 개수 디비에 저장
         //2.비트 개수를 sql문으로 불러와서 int or string으로 받아옴 -> 메인홈 textview:doit_count에 집어넣음
     }
+    //두잇이 이미지 이름 찾기 (추가)
+    public void findImageName(){
+        String name = null;
 
+        Dbhelper dbhelper = new Dbhelper(getContext());
+
+        SQLiteDatabase db = dbhelper.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME + " ;", null);
+
+        if(c.moveToFirst()){
+            do{
+                String head = c.getString(1);
+                String body = c.getString(2);
+
+                Log.i(TAG, "READ head : " + head + " body : " + body);
+
+                name = head + body;
+
+                int id = findByString(getContext(), name, "drawable");
+
+                doIt.setImageResource(id);
+
+                Log.i(TAG, "imgName : "+ name);
+            }while(c.moveToNext());
+        }
+    }
+
+    public static int findByString(Context context, String resourceName, String type) {
+
+        return context.getResources().getIdentifier(resourceName, type, context.getPackageName());
+
+    }
+    //--------------------
 }

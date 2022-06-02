@@ -31,7 +31,6 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
     private MyDbHelper mTodoDBHelper;
     int count;
     private boolean mIsChecked;
-    private BeetCheckBoxClickListener beetCheckBoxClickListener;
 
 
     public interface BeetCheckBoxClickListener{
@@ -41,7 +40,6 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
     public ToDoAdapter(ArrayList<TodoItem> todoItems, Context mContext) {
         this.mTodoItems = todoItems;
         this.mContext = mContext;
-        this.beetCheckBoxClickListener = beetCheckBoxClickListener;
         mTodoDBHelper = new MyDbHelper(mContext);
     }
 

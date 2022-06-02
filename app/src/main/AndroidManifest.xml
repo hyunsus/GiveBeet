@@ -11,14 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beet">
         <activity
-            android:name=".CalendarActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+            android:name=".ShopPopupNOKActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ShopPopupOKActivity"
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -29,6 +35,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ShopActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".StorageActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
-
 </manifest>
