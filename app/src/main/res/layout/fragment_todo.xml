@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_todo"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--이 내부에서 툴바를 꾸미면 됩니다. 버튼이던 뭐던~ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ToDo List"
+            android:textSize="35dp"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/newtodobox"
+        android:drawableStart="@drawable/ic_baseline_expand_more_24"
+        android:padding="10dp"
+        android:text="Select Date"
+        android:clickable="true"
+        android:focusable="false"
+        android:gravity="left"
+        android:textSize="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/todobox">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@id/doit"
+            android:text=" 퀘스트 진행 상황 "
+            android:textColor="#EA867F"
+            android:textSize="15dp"
+            android:textStyle="italic|bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="48dp"
+            android:layout_toRightOf="@id/text"
+            android:text="     %"
+            android:textColor="#EA867F"
+            android:textSize="30dp"
+            android:textStyle="italic|bold"></TextView>
+
+        <ImageView
+            android:id="@+id/doit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/doit"></ImageView>
+
+        <!--프로그레스 바 max로 1~100 지정-->
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="260dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="90dp"
+            android:layout_toRightOf="@id/doit"
+            android:max="100"
+            android:progressDrawable="@drawable/custombar" />
+
+        <android.widget.Button
+            android:id="@+id/button_beet"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/blue"
+            android:text="비트 받기"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"></android.widget.Button>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tasksRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:nestedScrollingEnabled="true"
+        tools:listitem="@layout/activity_list_todo"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:backgroundTint="#E8A48E"
+        android:src="@drawable/ic_baseline_add_24" />
+
+
+</LinearLayout>

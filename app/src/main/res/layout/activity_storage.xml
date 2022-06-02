@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StorageActivity">
+
+
+    <!--상단의 툴바 입니다. -->
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <!--이 내부에서 툴바를 꾸미면 됩니다. 버튼이던 뭐던~ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="35dp"
+            android:text="STORAGE"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- 가이드 라인 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="370dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="86dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="120dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="385dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="160dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="25dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="422dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="660dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:text="  15"
+        android:drawableLeft="@drawable/bit"
+        android:gravity="center|left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="   의상"
+        android:drawableLeft="@drawable/cloth"
+        android:gravity="center|left"
+        app:layout_constraintLeft_toRightOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/guideline4"
+        />
+
+
+    <GridView
+        android:id="@+id/ClothStrGrid"
+        android:layout_width="330dp"
+        android:layout_height="205dp"
+        android:columnWidth="60dp"
+        android:horizontalSpacing="3dp"
+        android:numColumns="3"
+        android:verticalSpacing="3dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline6"
+        app:layout_constraintLeft_toRightOf="@id/guideline2"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="   인테리어 소품"
+        android:drawableLeft="@drawable/object"
+        android:gravity="center|left"
+        app:layout_constraintLeft_toRightOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/guideline5"
+        />
+
+
+    <GridView
+        android:id="@+id/ObjectStrGrid"
+        android:layout_width="330dp"
+        android:layout_height="205dp"
+        android:columnWidth="60dp"
+        android:horizontalSpacing="3dp"
+        android:verticalSpacing="3dp"
+        android:numColumns="3"
+        app:layout_constraintTop_toBottomOf="@id/guideline9"
+        app:layout_constraintLeft_toRightOf="@id/guideline2"/>
+
+    <android.widget.Button
+        android:id="@+id/offHead"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="#E8A48E"
+        android:text="모자해제"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintRight_toLeftOf="@id/offBody"/>
+    <android.widget.Button
+        android:id="@+id/offBody"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="#E8A48E"
+        android:text="옷해제"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintRight_toLeftOf="@id/offAll"/>
+    <android.widget.Button
+        android:id="@+id/offAll"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="#E8A48E"
+        android:text="전체해제"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintRight_toLeftOf="@id/guideline8"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

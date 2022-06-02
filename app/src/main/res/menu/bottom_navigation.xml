@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home"/>
+
+    <item
+        android:id="@+id/action_todo"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_checklist_24"
+        android:title="todo"/>
+
+    <item
+        android:id="@+id/action_diary"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_edit_calendar_24"
+        android:title="diary"/>
+
+    <item
+        android:id="@+id/action_shop"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_store_mall_directory_24"
+        android:title="shop"/>
+
+</menu>

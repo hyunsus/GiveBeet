@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <RelativeLayout
+        android:id="@+id/rListView"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/box">
+
+        <TextView
+            android:id="@+id/day_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
+            android:text=" 2022 - 05 -18 " />
+
+        <TextView
+            android:id="@+id/context_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emoji"
+            android:layout_marginLeft="20dp"
+            android:text="  등록된 내용물이 출력된다"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/emoji"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/emotion1"></ImageView>
+
+        <ImageView
+            android:id="@+id/edit_img"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_below="@id/context_text"
+            android:layout_marginLeft="280dp"
+            android:src="@drawable/ic_baseline_create_24">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/delete_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/context_text"
+            android:layout_marginLeft="320dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_baseline_restore_from_trash_24"></ImageView>
+    </RelativeLayout>
+
+</LinearLayout>

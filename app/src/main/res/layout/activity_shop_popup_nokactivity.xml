@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".ShopPopupNOKActivity">
+
+    <!-- 타이틀 바 -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#E8A48E"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="SHOP"
+        android:textSize="20dp"
+        android:gravity="center"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#E8A48E"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:text="비트가 부족합니다"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        />
+
+    <android.widget.Button
+        android:id="@+id/okBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="확인"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/notice"
+        tools:ignore="MissingConstraints"></android.widget.Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
