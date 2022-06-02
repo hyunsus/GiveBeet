@@ -134,9 +134,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
                                     // Update table
                                     String content = et_content.getText().toString();
                                     String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); // 현재 시간 (연월일시분초) 받아오기
-                                    String beforeTime = todoItem.getWriteDate();
+                                    int todoid  = todoItem.getId();
 
-                                    mTodoDBHelper.UpdateTodo(content, currentTime, beforeTime);
+                                    mTodoDBHelper.UpdateTodo(content, currentTime, todoid);
 
                                     // Update UI
                                     todoItem.setContent(content);
@@ -149,8 +149,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
                             dialog.show();
                         }else if(position == 1){ // 삭제하기
                             // Delete table
-                            String beforeTime = todoItem.getWriteDate();
-                            mTodoDBHelper.DeleteTodo(beforeTime);
+                            int todoid = todoItem.getId();
+                            mTodoDBHelper.DeleteTodo(todoid);
 
                             // Delete UI
                             mTodoItems.remove(curPos);

@@ -93,15 +93,15 @@ public class MyDbHelper extends SQLiteOpenHelper {
     }
 
     //TodoUPDATE 문 (할 일 목록을 수정)
-    public void UpdateTodo(String _content, String _writeDate, String _beforeDate){
+    public void UpdateTodo(String _content, String _writeDate, int todoid){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("UPDATE " +ToDo.TABLE_NAME+ " SET content= '" + _content + "', writeDate= '" + _writeDate + "' WHERE writeDate='" + _beforeDate + "'");
+        db.execSQL("UPDATE " +ToDo.TABLE_NAME+ " SET content= '" + _content + "', writeDate= '" + _writeDate + "' WHERE id ='" + todoid + "'");
     }
 
     //TodoDELETE 문 (할 일 목록을 제거)
-    public void DeleteTodo(String _beforeDate){
+    public void DeleteTodo(int todoid){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " +ToDo.TABLE_NAME+ " WHERE writeDate = '" + _beforeDate + "'");
+        db.execSQL("DELETE FROM " +ToDo.TABLE_NAME+ " WHERE id = " + todoid + "");
     }
 
 
